@@ -10,7 +10,7 @@ Console.WriteLine("UDP-сервер запущен...");
 
 while (true)
 {
-    var data = new byte[256];
+    var data = new byte[65536];
     EndPoint remoteIp = new IPEndPoint(IPAddress.Any, 0);
     var result = await udpSocket.ReceiveFromAsync(data, SocketFlags.None, remoteIp);
     var message = Encoding.UTF8.GetString(data, 0, result.ReceivedBytes);
